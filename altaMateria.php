@@ -14,17 +14,15 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 
 	$materia = trim(strtolower($_POST['materia']));
 	 try {
-          $insertar= $conexion->prepare('INSERT INTO materia (nombre) VALUES (:MATERIA)');
+          $insertar= $conexion->prepare('INSERT INTO materias (materia) VALUES (:MATERIA)');
         $insertar->execute(array(
           ':MATERIA'=>$materia));
-        header('Location: registra_materia.php');
-		
-        //
+        header('Location: altaMateria.php');
         } 
         catch (PDOException $e) {
           echo "Error".$e->getMessage();
         } 
 }
-require 'view/registra_materia.view.php';
+require 'view/altaMateria.view.php';
 
  ?>

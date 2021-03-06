@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
   	}
   	else
   	{
-  		$duplicado = $conexion->prepare('Select usuario from usuarios WHERE usuario = :user LIMIT 1');
-  		$duplicado->execute(array(':user'=>$usuario));
+  		$duplicado = $conexion->prepare('Select usuario from usuarios WHERE usuario = :USER LIMIT 1');
+  		$duplicado->execute(array(':USER'=>$usuario));
       $resultado = $duplicado->fetch(); 
 
       if($resultado != false)

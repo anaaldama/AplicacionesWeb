@@ -5,21 +5,22 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="Fork-Awesome/css/fork-awesome.min.css">
-	<title>Asistencia</title>
+	<title>Alta Alumno - Materia</title>
 </head>
 <body>
 	<?php
 		include 'menu.php';
 	?>
 	<div class="contenedor">
-		<h1 class="titulo">Tomar Asistencia</h1>
+		<h1 class="titulo">Alta Alumno - Materia</h1>
 		<hr class="border">
-		<br>
-		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST" class="formulario" name="fasistencia">
+
+		<!-- Formulario -->
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST" class="formulario" name="fmateria">
 			<div class="form-grup">
-				<i class="icono izquierda fa fa-users"></i>
+				<i class="icono izquierda fa fa-user"></i>
 				<?php
-					include 'comboGrupo.php';
+					include 'comboAlumnos.php';
 				?>
 			</div>
 			<div class="form-grup">
@@ -27,19 +28,20 @@
 				<?php
 					include 'comboMaterias.php';
 				?>
-				<i class="submit_btn fa fa-arrow-right" onclick="fasistencia.submit()"></i>
+				<i class="submit_btn fa fa-arrow-right" onclick="fmateria.submit()"></i>
 			</div>
-
-			<?php if (!empty($errores)):?>
+		
+		<?php if (!empty($errores)):?>
 			<div class="error">
 				<?php echo $errores; ?>
 			</div>
-			<?php endif; ?>
-			<?php
-				require 'listaAsistencia.php';
-			?>
-		</form>
+		<?php endif; ?>
 		
+		<?php
+			require 'listaAlumnoMateria.php';
+		?>
+		</form>
+		<br>
 	</div>
 </body>
 </html>
